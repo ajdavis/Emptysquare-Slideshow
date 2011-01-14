@@ -6,9 +6,91 @@
 <link href="emptysquare_slideshow.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="http://www.thelodownny.com/leslog/wp-content/themes/atahualpa/images/favicon/lodown.ico" /><link rel="alternate" type="application/rss+xml" title="The Lo-Down : News from the Lower East Side RSS Feed" href="http://www.thelodownny.com/feed" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="emptysquare_slideshow.js"></script>
 <script type="text/javascript">
-photos = {'perpage': 500, 'title': 'For The Lo-Down', 'photo': [{'title': "At Zelig Blumenthal's shop", 'farm': 3, 'server': '2579', 'source': 'http://farm3.static.flickr.com/2579/3947030420_e273594a8d_z.jpg', 'secret': 'e273594a8d', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/3947030420', 'isprimary': '1', 'id': '3947030420'}, {'title': "Zelig Blumenthal's", 'farm': 3, 'server': '2569', 'source': 'http://farm3.static.flickr.com/2569/4003973940_65a48e1921_z.jpg', 'secret': '65a48e1921', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4003973940', 'isprimary': '0', 'id': '4003973940'}, {'title': 'SPURA', 'farm': 3, 'server': '2485', 'source': 'http://farm3.static.flickr.com/2485/4003217255_e9f14453ac_z.jpg', 'secret': 'e9f14453ac', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4003217255', 'isprimary': '0', 'id': '4003217255'}, {'title': u'Jos\xe9', 'farm': 4, 'server': '3428', 'source': 'http://farm4.static.flickr.com/3428/4003232095_8c94d39e50_z.jpg', 'secret': '8c94d39e50', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4003232095', 'isprimary': '0', 'id': '4003232095'}, {'title': 'xCubicle', 'farm': 4, 'server': '3456', 'source': 'http://farm4.static.flickr.com/3456/4004001762_0570f1e62c_z.jpg', 'secret': '0570f1e62c', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4004001762', 'isprimary': '0', 'id': '4004001762'}, {'title': 'Essex St', 'farm': 4, 'server': '3150', 'source': 'http://farm4.static.flickr.com/3150/3973794766_a9b6595e6a_z.jpg', 'secret': 'a9b6595e6a', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/3973794766', 'isprimary': '0', 'id': '3973794766'}, {'title': 'Essex St', 'farm': 3, 'server': '2571', 'source': 'http://farm3.static.flickr.com/2571/3949198431_c3f2372d01_z.jpg', 'secret': 'c3f2372d01', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/3949198431', 'isprimary': '0', 'id': '3949198431'}, {'title': 'SPURA', 'farm': 3, 'server': '2444', 'source': 'http://farm3.static.flickr.com/2444/3949220061_01ba0526d1_z.jpg', 'secret': '01ba0526d1', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/3949220061', 'isprimary': '0', 'id': '3949220061'}, {'title': 'Len', 'farm': 3, 'server': '2709', 'source': 'http://farm3.static.flickr.com/2709/4032209710_4d684402f6_z.jpg', 'secret': '4d684402f6', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4032209710', 'isprimary': '0', 'id': '4032209710'}, {'title': 'G & S Sports', 'farm': 3, 'server': '2509', 'source': 'http://farm3.static.flickr.com/2509/4031460989_ed9b3e17eb_z.jpg', 'secret': 'ed9b3e17eb', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4031460989', 'isprimary': '0', 'id': '4031460989'}, {'title': 'Essex St', 'farm': 3, 'server': '2534', 'source': 'http://farm3.static.flickr.com/2534/4032217206_f50948505e_z.jpg', 'secret': 'f50948505e', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4032217206', 'isprimary': '0', 'id': '4032217206'}, {'title': 'SPURA', 'farm': 3, 'server': '2470', 'source': 'http://farm3.static.flickr.com/2470/4065370619_ddc2fe4aa6_z.jpg', 'secret': 'ddc2fe4aa6', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4065370619', 'isprimary': '0', 'id': '4065370619'}, {'title': 'Walter Kuhr at The Main Squeeze', 'farm': 3, 'server': '2622', 'source': 'http://farm3.static.flickr.com/2622/4175422388_74c78b25c4_z.jpg', 'secret': '74c78b25c4', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4175422388', 'isprimary': '0', 'id': '4175422388'}, {'title': 'The Main Squeeze', 'farm': 3, 'server': '2795', 'source': 'http://farm3.static.flickr.com/2795/4174666675_8a34473ccc_z.jpg', 'secret': '8a34473ccc', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4174666675', 'isprimary': '0', 'id': '4174666675'}, {'title': 'The Pickle Guys', 'farm': 3, 'server': '2722', 'source': 'http://farm3.static.flickr.com/2722/4174657283_c0423885c6_z.jpg', 'secret': 'c0423885c6', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4174657283', 'isprimary': '0', 'id': '4174657283'}, {'title': 'The Pickle Guys', 'farm': 5, 'server': '4040', 'source': 'http://farm5.static.flickr.com/4040/4213337825_29ee77e453_z.jpg', 'secret': '29ee77e453', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4213337825', 'isprimary': '0', 'id': '4213337825'}, {'title': 'Essex St', 'farm': 3, 'server': '2793', 'source': 'http://farm3.static.flickr.com/2793/4174644907_6ecf166691_z.jpg', 'secret': '6ecf166691', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4174644907', 'isprimary': '0', 'id': '4174644907'}, {'title': 'G & S Sports', 'farm': 3, 'server': '2719', 'source': 'http://farm3.static.flickr.com/2719/4174633967_f865814ff1_z.jpg', 'secret': 'f865814ff1', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4174633967', 'isprimary': '0', 'id': '4174633967'}, {'title': 'Takeoff', 'farm': 3, 'server': '2457', 'source': 'http://farm3.static.flickr.com/2457/4035776577_45231fd97f_z.jpg', 'secret': '45231fd97f', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4035776577', 'isprimary': '0', 'id': '4035776577'}, {'title': 'SPURA', 'farm': 3, 'server': '2682', 'source': 'http://farm3.static.flickr.com/2682/4281165749_a229078bfb_z.jpg', 'secret': 'a229078bfb', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4281165749', 'isprimary': '0', 'id': '4281165749'}, {'title': 'SPURA', 'farm': 5, 'server': '4016', 'source': 'http://farm5.static.flickr.com/4016/4281184783_1153fe5294_z.jpg', 'secret': '1153fe5294', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4281184783', 'isprimary': '0', 'id': '4281184783'}, {'title': 'SPURA', 'farm': 5, 'server': '4060', 'source': 'http://farm5.static.flickr.com/4060/4281944096_9418190057_z.jpg', 'secret': '9418190057', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4281944096', 'isprimary': '0', 'id': '4281944096'}, {'title': "World's Most Expensive Parking Spot", 'farm': 5, 'server': '4029', 'source': 'http://farm5.static.flickr.com/4029/4375071032_f57e6fc802_z.jpg', 'secret': 'f57e6fc802', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4375071032', 'isprimary': '0', 'id': '4375071032'}, {'title': "Frank's Chop Shop", 'farm': 5, 'server': '4027', 'source': 'http://farm5.static.flickr.com/4027/4374336147_cf5725ba19_z.jpg', 'secret': 'cf5725ba19', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4374336147', 'isprimary': '0', 'id': '4374336147'}, {'title': "Frank's Chop Shop", 'farm': 5, 'server': '4055', 'source': 'http://farm5.static.flickr.com/4055/4375092350_75475b8763_z.jpg', 'secret': '75475b8763', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4375092350', 'isprimary': '0', 'id': '4375092350'}, {'title': 'Seward Park', 'farm': 5, 'server': '4051', 'source': 'http://farm5.static.flickr.com/4051/4374345705_ae4438a28c_z.jpg', 'secret': 'ae4438a28c', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4374345705', 'isprimary': '0', 'id': '4374345705'}, {'title': '11 Essex St', 'farm': 3, 'server': '2677', 'source': 'http://farm3.static.flickr.com/2677/4375101230_7b8780860f_z.jpg', 'secret': '7b8780860f', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4375101230', 'isprimary': '0', 'id': '4375101230'}, {'title': 'Rivington St.', 'farm': 3, 'server': '2686', 'source': 'http://farm3.static.flickr.com/2686/4375106726_05848329cd_z.jpg', 'secret': '05848329cd', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4375106726', 'isprimary': '0', 'id': '4375106726'}, {'title': "Frank's Chop Shop", 'farm': 5, 'server': '4058', 'source': 'http://farm5.static.flickr.com/4058/4374362715_9819136787_z.jpg', 'secret': '9819136787', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4374362715', 'isprimary': '0', 'id': '4374362715'}, {'title': "Frank's Chop Shop", 'farm': 5, 'server': '4009', 'source': 'http://farm5.static.flickr.com/4009/4388481390_e802cb7be8_z.jpg', 'secret': 'e802cb7be8', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4388481390', 'isprimary': '0', 'id': '4388481390'}, {'title': "Frank's Chop Shop", 'farm': 3, 'server': '2781', 'source': 'http://farm3.static.flickr.com/2781/4387729871_a1a758f875_z.jpg', 'secret': 'a1a758f875', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4387729871', 'isprimary': '0', 'id': '4387729871'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 5, 'server': '4028', 'source': 'http://farm5.static.flickr.com/4028/4387735305_0418b0c8e0_z.jpg', 'secret': '0418b0c8e0', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4387735305', 'isprimary': '0', 'id': '4387735305'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 5, 'server': '4001', 'source': 'http://farm5.static.flickr.com/4001/4388502302_01dbcfc01a_z.jpg', 'secret': '01dbcfc01a', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4388502302', 'isprimary': '0', 'id': '4388502302'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 5, 'server': '4038', 'source': 'http://farm5.static.flickr.com/4038/4388506878_bc3a1c47e7_z.jpg', 'secret': 'bc3a1c47e7', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4388506878', 'isprimary': '0', 'id': '4388506878'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 5, 'server': '4063', 'source': 'http://farm5.static.flickr.com/4063/4388512348_fe68be66b3_z.jpg', 'secret': 'fe68be66b3', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4388512348', 'isprimary': '0', 'id': '4388512348'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 5, 'server': '4020', 'source': 'http://farm5.static.flickr.com/4020/4388517670_89544edb42_z.jpg', 'secret': '89544edb42', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4388517670', 'isprimary': '0', 'id': '4388517670'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 5, 'server': '4028', 'source': 'http://farm5.static.flickr.com/4028/4387761085_82e33c58c7_z.jpg', 'secret': '82e33c58c7', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4387761085', 'isprimary': '0', 'id': '4387761085'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 3, 'server': '2679', 'source': 'http://farm3.static.flickr.com/2679/4387766475_fa7b3dfd20_z.jpg', 'secret': 'fa7b3dfd20', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4387766475', 'isprimary': '0', 'id': '4387766475'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 3, 'server': '2764', 'source': 'http://farm3.static.flickr.com/2764/4388533532_16d80a862e_z.jpg', 'secret': '16d80a862e', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4388533532', 'isprimary': '0', 'id': '4388533532'}, {'title': 'Nat Weisberg & Sons Judaica', 'farm': 3, 'server': '2695', 'source': 'http://farm3.static.flickr.com/2695/4388538916_9416fe0e2d_z.jpg', 'secret': '9416fe0e2d', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4388538916', 'isprimary': '0', 'id': '4388538916'}, {'title': "Tenants' Rights Rally", 'farm': 5, 'server': '4032', 'source': 'http://farm5.static.flickr.com/4032/4550363393_504edb1359_z.jpg', 'secret': '504edb1359', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4550363393', 'isprimary': '0', 'id': '4550363393'}, {'title': "Tenants' Rights Rally", 'farm': 5, 'server': '4051', 'source': 'http://farm5.static.flickr.com/4051/4551008522_f8c0528456_z.jpg', 'secret': 'f8c0528456', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4551008522', 'isprimary': '0', 'id': '4551008522'}, {'title': "Tenants' Rights Rally", 'farm': 5, 'server': '4014', 'source': 'http://farm5.static.flickr.com/4014/4551014960_8b4e933348_z.jpg', 'secret': '8b4e933348', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4551014960', 'isprimary': '0', 'id': '4551014960'}, {'title': u'Frances Pe\xf1a', 'farm': 2, 'server': '1046', 'source': 'http://farm2.static.flickr.com/1046/4602677095_7fc24f4e58_z.jpg', 'secret': '7fc24f4e58', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4602677095', 'isprimary': '0', 'id': '4602677095'}, {'title': 'Guillermo', 'farm': 4, 'server': '3300', 'source': 'http://farm4.static.flickr.com/3300/4603292232_3fa7965ce4_z.jpg', 'secret': '3fa7965ce4', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4603292232', 'isprimary': '0', 'id': '4603292232'}, {'title': 'SPURA', 'farm': 5, 'server': '4039', 'source': 'http://farm5.static.flickr.com/4039/4617845248_0871fcc76a_z.jpg', 'secret': '0871fcc76a', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4617845248', 'isprimary': '0', 'id': '4617845248'}, {'title': 'Essex and Stanton Streets', 'farm': 5, 'server': '4031', 'source': 'http://farm5.static.flickr.com/4031/4638930870_f20c58c0a4_z.jpg', 'secret': 'f20c58c0a4', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4638930870', 'isprimary': '0', 'id': '4638930870'}, {'title': 'Orchard Street', 'farm': 5, 'server': '4001', 'source': 'http://farm5.static.flickr.com/4001/4646802792_5bb709aff4_z.jpg', 'secret': '5bb709aff4', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4646802792', 'isprimary': '0', 'id': '4646802792'}, {'title': 'Orchard Street', 'farm': 5, 'server': '4069', 'source': 'http://farm5.static.flickr.com/4069/4646193477_a27f378a7b_z.jpg', 'secret': 'a27f378a7b', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4646193477', 'isprimary': '0', 'id': '4646193477'}, {'title': 'Ludlow and Stanton Streets', 'farm': 5, 'server': '4035', 'source': 'http://farm5.static.flickr.com/4035/4646812308_f95282ccda_z.jpg', 'secret': 'f95282ccda', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4646812308', 'isprimary': '0', 'id': '4646812308'}, {'title': 'Stanton Street', 'farm': 5, 'server': '4039', 'source': 'http://farm5.static.flickr.com/4039/4646816626_f3d7637b56_z.jpg', 'secret': 'f3d7637b56', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4646816626', 'isprimary': '0', 'id': '4646816626'}, {'title': 'Ludlow Street', 'farm': 5, 'server': '4040', 'source': 'http://farm5.static.flickr.com/4040/4646820608_ce24765cdc_z.jpg', 'secret': 'ce24765cdc', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4646820608', 'isprimary': '0', 'id': '4646820608'}, {'title': 'Ludlow Street', 'farm': 5, 'server': '4005', 'source': 'http://farm5.static.flickr.com/4005/4650385908_40e0259fd7_z.jpg', 'secret': '40e0259fd7', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4650385908', 'isprimary': '0', 'id': '4650385908'}, {'title': 'Ludlow Street', 'farm': 5, 'server': '4021', 'source': 'http://farm5.static.flickr.com/4021/4650392234_dd605e2eef_z.jpg', 'secret': 'dd605e2eef', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4650392234', 'isprimary': '0', 'id': '4650392234'}, {'title': 'Essex Street Market', 'farm': 5, 'server': '4060', 'source': 'http://farm5.static.flickr.com/4060/4656076671_72e4d897fa_z.jpg', 'secret': '72e4d897fa', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4656076671', 'isprimary': '0', 'id': '4656076671'}, {'title': 'Norfolk Street', 'farm': 5, 'server': '4024', 'source': 'http://farm5.static.flickr.com/4024/4656148185_c1a2a36406_z.jpg', 'secret': 'c1a2a36406', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4656148185', 'isprimary': '0', 'id': '4656148185'}, {'title': 'Yevgeniy Fiks', 'farm': 2, 'server': '1266', 'source': 'http://farm2.static.flickr.com/1266/4698174372_4abefff153_z.jpg', 'secret': '4abefff153', 'flickr_url': 'http://www.flickr.com/photos/emptysquare/4698174372', 'isprimary': '0', 'id': '4698174372'}], 'pages': 1, 'primary': '3947030420', 'id': '72157622442138373', 'ownername': 'emptysquare', 'owner': '93922379@N00', 'per_page': 500, 'total': '57', 'page': 1};
 
+photos = {
+ "id": "72157625458508349", 
+ "owner": "93922379@N00", 
+ "ownername": "emptysquare", 
+ "page": 1, 
+ "pages": 1, 
+ "per_page": 500, 
+ "perpage": 500, 
+ "photo": [
+  {
+   "description": "December 4, 2010.  Fritz Donnelly and Christina Ewald of HiChristina, in their Williamsburg loft.", 
+   "farm": 6, 
+   "flickr_url": "http://www.flickr.com/photos/emptysquare/5255337858", 
+   "id": "5255337858", 
+   "isprimary": "0", 
+   "secret": "5487a39d67", 
+   "server": "5284", 
+   "source": "http://farm6.static.flickr.com/5284/5255337858_5487a39d67_z.jpg", 
+   "title": "Fritz and Christina"
+  }, 
+  {
+   "description": "November 11, 2010.  Fritz Donnelly and Christina Ewald of HiChristina, in an East Village performance.", 
+   "farm": 6, 
+   "flickr_url": "http://www.flickr.com/photos/emptysquare/5254703695", 
+   "id": "5254703695", 
+   "isprimary": "1", 
+   "secret": "2b5ed0f733", 
+   "server": "5123", 
+   "source": "http://farm6.static.flickr.com/5123/5254703695_2b5ed0f733_z.jpg", 
+   "title": "Fritz and Christina"
+  }, 
+  {
+   "description": "November 11, 2010.  Christina Ewald of HiChristina, in the East Village.", 
+   "farm": 6, 
+   "flickr_url": "http://www.flickr.com/photos/emptysquare/5255321300", 
+   "id": "5255321300", 
+   "isprimary": "0", 
+   "secret": "c4f1d62a7f", 
+   "server": "5124", 
+   "source": "http://farm6.static.flickr.com/5124/5255321300_c4f1d62a7f_z.jpg", 
+   "title": "Christina"
+  }, 
+  {
+   "description": "November 19, 2010.  Fritz Donnelly of HiChristina, in a SoHo performance.", 
+   "farm": 6, 
+   "flickr_url": "http://www.flickr.com/photos/emptysquare/5254719191", 
+   "id": "5254719191", 
+   "isprimary": "0", 
+   "secret": "01b2813d40", 
+   "server": "5162", 
+   "source": "http://farm6.static.flickr.com/5162/5254719191_01b2813d40_z.jpg", 
+   "title": "Fritz"
+  }, 
+  {
+   "description": "November 14, 2010.  Fritz Donnelly and Christina Ewald of HiChristina, at Schiller's on the Lower East Side.", 
+   "farm": 6, 
+   "flickr_url": "http://www.flickr.com/photos/emptysquare/5255326088", 
+   "id": "5255326088", 
+   "isprimary": "0", 
+   "secret": "6fdaff7c74", 
+   "server": "5207", 
+   "source": "http://farm6.static.flickr.com/5207/5255326088_6fdaff7c74_z.jpg", 
+   "title": "Fritz and Christina"
+  }, 
+  {
+   "description": "December 4, 2010.  Fritz Donnelly and Christina Ewald of HiChristina, in their Williamsburg loft.", 
+   "farm": 6, 
+   "flickr_url": "http://www.flickr.com/photos/emptysquare/5255342176", 
+   "id": "5255342176", 
+   "isprimary": "0", 
+   "secret": "a4acbc07fc", 
+   "server": "5244", 
+   "source": "http://farm6.static.flickr.com/5244/5255342176_a4acbc07fc_z.jpg", 
+   "title": "Fritz and Christina"
+  }
+ ], 
+ "primary": "5254703695", 
+ "title": "Fritz and Christina photo essay", 
+ "total": "6"
+};
+
+$(document).ready(function(){ emptysquare_slideshow_onready(photos) });
 
 </script>
 <!--[if IE 5]>
@@ -33,7 +115,10 @@ photos = {'perpage': 500, 'title': 'For The Lo-Down', 'photo': [{'title': "At Ze
   <div id="header">
     <h1></h1>
   </div>
-  <div id="sidebar1"></div>
+  <div id="sidebar1">
+    <h1 id="photo_title"></h1>
+    <div id="photo_caption"></div>
+  </div>
   <div id="mainContent">
     <div id="photo_nav">
       <div id="left_arrow"><img src="emptysquare_slideshow_arrow_left.gif" /></div>
@@ -42,7 +127,9 @@ photos = {'perpage': 500, 'title': 'For The Lo-Down', 'photo': [{'title': "At Ze
       </div>
       <div id="right_arrow"><img src="emptysquare_slideshow_arrow_right.gif" /></div>
     </div>
-    <div id="photo"></div>
+    <div id="photo_container">
+        <p id="photo"></p>
+    </div>
 	<br class="clearfloat" />
   </div>
   <div id="footer"></div>

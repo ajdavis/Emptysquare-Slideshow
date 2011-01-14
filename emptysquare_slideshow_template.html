@@ -6,9 +6,12 @@
 <link href="emptysquare_slideshow.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="http://www.thelodownny.com/leslog/wp-content/themes/atahualpa/images/favicon/lodown.ico" /><link rel="alternate" type="application/rss+xml" title="The Lo-Down : News from the Lower East Side RSS Feed" href="http://www.thelodownny.com/feed" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="emptysquare_slideshow.js"></script>
 <script type="text/javascript">
+
 photos = ${photos_info_json};
 
+$(document).ready(function(){ emptysquare_slideshow_onready(photos) });
 
 </script>
 <!--[if IE 5]>
@@ -33,7 +36,10 @@ photos = ${photos_info_json};
   <div id="header">
     <h1></h1>
   </div>
-  <div id="sidebar1"></div>
+  <div id="sidebar1">
+    <h1 id="photo_title"></h1>
+    <div id="photo_caption"></div>
+  </div>
   <div id="mainContent">
     <div id="photo_nav">
       <div id="left_arrow"><img src="emptysquare_slideshow_arrow_left.gif" /></div>
@@ -42,7 +48,9 @@ photos = ${photos_info_json};
       </div>
       <div id="right_arrow"><img src="emptysquare_slideshow_arrow_right.gif" /></div>
     </div>
-    <div id="photo"></div>
+    <div id="photo_container">
+        <p id="photo"></p>
+    </div>
 	<br class="clearfloat" />
   </div>
   <div id="footer"></div>

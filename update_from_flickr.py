@@ -9,6 +9,7 @@ secret 2f58307171bc644e
 """
 
 from __future__ import print_function
+import sys
 import string
 import simplejson
 import flickrapi # from http://pypi.python.org/pypi/flickrapi
@@ -84,7 +85,7 @@ def get_photoset(flickr_username, set_name):
     photos = json_flickr.photosets_getPhotos(photoset_id=emptysquare_set['id'])['photoset']
     photos['title'] = set_name # Add title to returned data
     
-    # Add image URLs to the photo info returned by photosets_getPhotos()
+    # Add image URLs and descriptions to the photo info returned by photosets_getPhotos()
     for photo in photos['photo']:
         photo['flickr_url'] = 'http://www.flickr.com/photos/%s/%s' % (
             flickr_username, photo['id']
@@ -108,6 +109,13 @@ def get_photoset(flickr_username, set_name):
                     repr(photo['flickr_url'])
                 )
             )
+        
+        info = json_flickr.photos_getInfo(photo_id=photo['id'])
+        photo['description'] = info['photo']['description']['_content']
+        
+        sys.stdout.write('.'); sys.stdout.flush()
+    
+    sys.stdout.write('\n')
     
     return photos
 
@@ -117,7 +125,7 @@ def make_html(source, destination, photos):
         f.write(
             string.Template(
                 source_contents
-            ).safe_substitute({ 'photos_info_json': photos })
+            ).safe_substitute({ 'photos_info_json': dump_json(photos) })
         )
 
 if __name__ == '__main__':

@@ -36,20 +36,26 @@ body  {
 	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
 	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
 }
-.twoColFixRtHdr #container #photo_nav {
+.twoColFixRtHdr #photo_nav {
 	margin: 0 auto;
 	padding:0;
 	width: 250px;
 	height: 12px;
 	margin-top:7px;
 }
-.twoColFixRtHdr #container #photo_nav #left_arrow {
-	float:left;
+.twoColFixRtHdr #left_arrow, #right_arrow {
 	width:26px;
 	margin:0;
 	padding:0;
+    cursor:pointer;
 }
-.twoColFixRtHdr #container #photo_nav #photo_index_container {
+.twoColFixRtHdr #left_arrow {
+    float:left;
+}
+.twoColFixRtHdr #right_arrow {
+    float:right;
+}
+.twoColFixRtHdr #photo_index_container {
 	float:left;
 	width:198px;
 	margin:0;
@@ -60,12 +66,6 @@ body  {
 	width:75px;
 	padding:0;
 }
-.twoColFixRtHdr #container #photo_nav #right_arrow {
-	float:right;
-	width:26px;
-	margin:0;
-	padding:0;
-}
 .twoColFixRtHdr #sidebar1 {
 	float: right; /* since this element is floated, a width must be given */
 	width: 255px; /* the background color will be displayed for the length of the content in the column, but no further */
@@ -74,10 +74,17 @@ body  {
 	margin-top: 10px;
 	min-height: 660px;
 }
+.twoColFixRtHdr #photo_title {
+    font-size:16pt;
+    font-weight:bold;
+}
+.twoColFixRtHdr #photo_caption {
+    font-size:14px;
+}
 .twoColFixRtHdr #mainContent { 
 	margin: 0 250px 0 0; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
 	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
-} 
+}
 .twoColFixRtHdr #footer {
 	padding: 0 10px 0 20px;
 } 
@@ -85,11 +92,15 @@ body  {
 	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
 	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
 }
-#photo {
+#photo_container {
 	width: 640px;
-	border: 1px solid #CCCCCC;
+	/*border: 1px solid #CCCCCC;*/
 	height: 640px;
 	margin-top: 25px;
+    cursor: pointer;
+}
+#photo {
+    text-align:center;
 }
 .fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
 	float: right;
