@@ -1,0 +1,107 @@
+@charset "UTF-8";
+body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #1A1A1A;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #999999;
+}
+.twoColFixRtHdr #superheader {
+	width: 970px;
+	height: 60px;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	background-image: url(emptysquare_slideshow_lodown_logo.gif);
+	background-repeat: no-repeat;
+	background-position: left center;
+	margin-bottom: 5px;
+}
+.twoColFixRtHdr #container {
+	border: 1px solid #505050;
+	width: 960px;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	padding: 5px;
+	margin-bottom: 10px;
+} 
+.twoColFixRtHdr #superheader a {
+	font-weight: bold;
+}
+.twoColFixRtHdr #header {
+	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	border-bottom: 4px solid #505050;
+} 
+.twoColFixRtHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.twoColFixRtHdr #container #photo_nav {
+	margin: 0 auto;
+	padding:0;
+	width: 250px;
+	height: 12px;
+	margin-top:7px;
+}
+.twoColFixRtHdr #container #photo_nav #left_arrow {
+	float:left;
+	width:26px;
+	margin:0;
+	padding:0;
+}
+.twoColFixRtHdr #container #photo_nav #photo_index_container {
+	float:left;
+	width:198px;
+	margin:0;
+	padding:0;
+}
+.twoColFixRtHdr #photo_index {
+	margin: 0 auto;
+	width:75px;
+	padding:0;
+}
+.twoColFixRtHdr #container #photo_nav #right_arrow {
+	float:right;
+	width:26px;
+	margin:0;
+	padding:0;
+}
+.twoColFixRtHdr #sidebar1 {
+	float: right; /* since this element is floated, a width must be given */
+	width: 255px; /* the background color will be displayed for the length of the content in the column, but no further */
+	padding: 10px;
+	border-left: 1px solid #505050;
+	margin-top: 10px;
+	min-height: 660px;
+}
+.twoColFixRtHdr #mainContent { 
+	margin: 0 250px 0 0; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+} 
+.twoColFixRtHdr #footer {
+	padding: 0 10px 0 20px;
+} 
+.twoColFixRtHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+#photo {
+	width: 640px;
+	border: 1px solid #CCCCCC;
+	height: 640px;
+	margin-top: 25px;
+}
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
