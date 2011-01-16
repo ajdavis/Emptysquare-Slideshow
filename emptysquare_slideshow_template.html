@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Untitled Document</title>
+<title>${title}</title>
 <link href="emptysquare_slideshow.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="http://www.thelodownny.com/leslog/wp-content/themes/atahualpa/images/favicon/lodown.ico" /><link rel="alternate" type="application/rss+xml" title="The Lo-Down : News from the Lower East Side RSS Feed" href="http://www.thelodownny.com/feed" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -30,21 +30,29 @@ $(document).ready(function(){ emptysquare_slideshow_onready(photos) });
 </head>
 
 <body class="twoColFixRtHdr">
-<div id="superheader">
-</div>
 <div id="container">
   <div id="header">
-    <h1></h1>
+    <a id="home_link" href="http://thelodownny.com/">
+      <img src="emptysquare_slideshow_lodown_logo.gif" height="35px" width="125px" />
+    </a>
+    <h1>${title}</h1>
   </div>
   <div id="sidebar1">
     <h1 id="photo_title"></h1>
     <div id="photo_caption"></div>
+    <div id="photo_credit">
+      Photo: <span id="photo_credit_span"></span>
+      <a id="flickr_link" href="#" target="_blank">
+        <img class="icon" style="position:relative; top:1px" src="emptysquare_slideshow_flickr_icon.gif" width="22px" height="11px" />
+      </a>
+    </div>
+    <div id="back_to_article">Article: <a href="${back_to_article_link}">${article_title}</a></div>
   </div>
   <div id="mainContent">
     <div id="photo_nav">
       <div id="left_arrow"><img src="emptysquare_slideshow_arrow_left.gif" /></div>
       <div id="photo_index_container">
-	    <div id="photo_index">0 / 0</div>
+	    <div id="photo_index"><span id="photo_index_span">1</span> of ${total_photos}</div>
       </div>
       <div id="right_arrow"><img src="emptysquare_slideshow_arrow_right.gif" /></div>
     </div>
@@ -53,8 +61,11 @@ $(document).ready(function(){ emptysquare_slideshow_onready(photos) });
     </div>
 	<br class="clearfloat" />
   </div>
-  <div id="footer"></div>
-  <!-- <p>Footer</p> -->
+</div>
+<div id="footer">
+    Arrow icons
+    <img style="position:relative; top:3px" alt="Creative Commons license" src="emptysquare_slideshow_cc_icon.gif" width="14px" height="14px" >
+    <a href="http://www.app-bits.com/" target="_blank">App-bits</a>
 </div>
 </body>
 </html>

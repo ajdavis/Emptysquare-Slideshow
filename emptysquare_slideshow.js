@@ -3,9 +3,11 @@ var imageId = 0;
 /* Show the proper image after updating imageId.
  */
 function navigateToImageId() {
-    // Start clean
-    $("#left_arrow").empty().unbind('click');
-    $("#right_arrow").empty().unbind('click');
+    // Start clean -- the div can't be completely empty or it won't respect its
+    // height and width styles, so put an nbsp in it
+    $("#left_arrow").html('&nbsp;').unbind('click');
+    $("#right_arrow").html('&nbsp;').unbind('click');
+    $("#photo").unbind('click');
     
 	/**
 	 *  Show or hide the left and right arrows depending on current position in
@@ -22,18 +24,19 @@ function navigateToImageId() {
 		$("#right_arrow")
         .html('<img src="emptysquare_slideshow_arrow_right.gif" />')
         .click(go_right);
+        
+        $("#photo").click(go_right);
 	}
-	
-	// Clicking the image container has same effect as right arrow
-	//$("#imageContainer a").attr('href', navRightHref);
 	
 	/**
 	 * Update the displayed image id
 	 */
-	$("#photo_index").html("" + (imageId + 1));
+	$("#photo_index_span").html("" + (imageId + 1));
 	
 	$("#photo_caption").html(photos['photo'][imageId]['description']);
 	$("#photo_title").html(photos['photo'][imageId]['title']);
+    $("#photo_credit_span").html(photos['photo'][imageId]['owner_realname']);
+    $("#flickr_link").attr('href', photos['photo'][imageId]['flickr_url']);
 	
 	/**
 	 * Show the image
@@ -98,7 +101,4 @@ function emptysquare_slideshow_onready(photos) {
 			}
 		}
 	});
-    
-    $('#left_arrow').click(go_left);
-    $('#right_arrow').click(go_right);
 }

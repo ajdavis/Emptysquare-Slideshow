@@ -20,6 +20,8 @@ api_key = '24b43252c30181f08bd549edbb3ed394'
 parser = argparse.ArgumentParser(description='Update emptysquare slideshow from your Flickr account')
 parser.add_argument(dest='flickr_username', action='store', help='Your Flickr username')
 parser.add_argument(dest='set_name', action='store', help='The (case-sensitive) name of the Flickr set to use')
+parser.add_argument(dest='article_title', action='store', help='The title of the related article (for back-to-article link)')
+parser.add_argument(dest='back_to_article_link', action='store', help='URL of the related article (for back-to-article link')
 
 def parse_flickr_json(json_string):
     """
@@ -110,8 +112,9 @@ def get_photoset(flickr_username, set_name):
                 )
             )
         
-        info = json_flickr.photos_getInfo(photo_id=photo['id'])
-        photo['description'] = info['photo']['description']['_content']
+        info = json_flickr.photos_getInfo(photo_id=photo['id'])['photo']
+        photo['description'] = info['description']['_content']
+        photo['owner_realname'] = info['owner']['realname']
         
         sys.stdout.write('.'); sys.stdout.flush()
     
@@ -119,13 +122,19 @@ def get_photoset(flickr_username, set_name):
     
     return photos
 
-def make_html(source, destination, photos):
+def make_html(source, destination, photos, args):
     source_contents = open(source).read()
     with file(destination, 'w+') as f:
         f.write(
             string.Template(
                 source_contents
-            ).safe_substitute({ 'photos_info_json': dump_json(photos) })
+            ).safe_substitute({
+                'title': photos['title'],
+                'total_photos': photos['total'],
+                'photos_info_json': dump_json(photos),
+                'article_title': args.article_title,
+                'back_to_article_link': args.back_to_article_link,
+            })
         )
 
 if __name__ == '__main__':
@@ -133,5 +142,5 @@ if __name__ == '__main__':
     source = 'emptysquare_slideshow_template.html'
     destination = 'emptysquare_slideshow.html'
     photos = get_photoset(args.flickr_username, args.set_name)
-    make_html(source, destination, photos)
+    make_html(source, destination, photos, args)
     print('Done')

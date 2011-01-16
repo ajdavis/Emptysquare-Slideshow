@@ -1,21 +1,19 @@
 @charset "UTF-8";
 body  {
-	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	font-family: "Helvetica", sans-serif;
+    letter-spacing: .03em;
 	background: #1A1A1A;
 	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
 	padding: 0;
 	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
-	color: #999999;
+	/*color: #999999;*/
+	color: white;
 }
-.twoColFixRtHdr #superheader {
-	width: 970px;
-	height: 60px;
-	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
-	text-align: left; /* this overrides the text-align: center on the body element. */
-	background-image: url(emptysquare_slideshow_lodown_logo.gif);
-	background-repeat: no-repeat;
-	background-position: left center;
-	margin-bottom: 5px;
+a, a:visited, a:active {
+    color: inherit;
+}
+a img {
+    border: none;
 }
 .twoColFixRtHdr #container {
 	border: 1px solid #505050;
@@ -23,18 +21,28 @@ body  {
 	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
 	text-align: left; /* this overrides the text-align: center on the body element. */
 	padding: 5px;
+    margin-top: 10px;
 	margin-bottom: 10px;
 } 
-.twoColFixRtHdr #superheader a {
-	font-weight: bold;
-}
 .twoColFixRtHdr #header {
-	padding: 0 10px 0 20px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	/*background-image: url(emptysquare_slideshow_lodown_logo.gif);*/
+	/*background-repeat: no-repeat;*/
+	/*background-position: left center;*/
+	/*padding: 0 10px 0 20px;*/  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
 	border-bottom: 4px solid #505050;
+    height: 40px;
 } 
+.twoColFixRtHdr #home_link img {
+    border: none;
+}
 .twoColFixRtHdr #header h1 {
-	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
-	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+    font-size: 32px;
+    letter-spacing: 0.05em;
+    color: #EEEEEE;
+    margin: -5px 0 15px 5px;
+    position: relative;
+    top: -3px;
+    display: inline;
 }
 .twoColFixRtHdr #photo_nav {
 	margin: 0 auto;
@@ -63,6 +71,7 @@ body  {
 }
 .twoColFixRtHdr #photo_index {
 	margin: 0 auto;
+    margin-top: 6px;
 	width:75px;
 	padding:0;
 }
@@ -77,22 +86,33 @@ body  {
 .twoColFixRtHdr #photo_title {
     font-size:16pt;
     font-weight:bold;
+    margin-top: 0;
 }
 .twoColFixRtHdr #photo_caption {
     font-size:14px;
+}
+.twoColFixRtHdr #photo_credit {
+    font-size:10px;
+    color: #909090;
+    border-bottom: 1px solid #505050;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.twoColFixRtHdr #back_to_article {
+    font-size: 10px;
+    margin-top: 20px;    
 }
 .twoColFixRtHdr #mainContent { 
 	margin: 0 250px 0 0; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
 	padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
 }
 .twoColFixRtHdr #footer {
+    margin: 0 auto; /* center in page */
 	padding: 0 10px 0 20px;
-} 
-.twoColFixRtHdr #footer p {
-	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
-	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+    font-size: 10px;
+    color: #909090;
 }
-#photo_container {
+.twoColFixRtHdr #photo_container {
 	width: 640px;
 	/*border: 1px solid #CCCCCC;*/
 	height: 640px;
