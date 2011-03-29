@@ -34,10 +34,12 @@ function navigateToImageId() {
 	$("#photo_index_span").html("" + (imageId + 1));
 	
 	$("#photo_caption").html(photos['photo'][imageId]['description']);
-	$("#photo_title").html(photos['photo'][imageId]['title']);
     $("#photo_credit_span").html(photos['photo'][imageId]['owner_realname']);
     $("#flickr_link").attr('href', photos['photo'][imageId]['flickr_url']);
-	
+
+    if (show_titles) {
+        $("#photo_title").html(photos['photo'][imageId]['title']);
+    }
 	/**
 	 * Show the image
 	 */

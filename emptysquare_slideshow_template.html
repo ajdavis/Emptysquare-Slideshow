@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>${title}</title>
+<title>${article_title}</title>
 <link href="emptysquare_slideshow.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="http://www.thelodownny.com/leslog/wp-content/themes/atahualpa/images/favicon/lodown.ico" /><link rel="alternate" type="application/rss+xml" title="The Lo-Down : News from the Lower East Side RSS Feed" href="http://www.thelodownny.com/feed" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -10,6 +10,8 @@
 <script type="text/javascript">
 
 photos = ${photos_info_json};
+
+show_titles = ${show_titles};
 
 $(document).ready(function(){ emptysquare_slideshow_onready(photos) });
 
@@ -35,7 +37,7 @@ $(document).ready(function(){ emptysquare_slideshow_onready(photos) });
     <a id="home_link" href="http://thelodownny.com/">
       <img src="emptysquare_slideshow_lodown_logo.gif" height="35px" width="125px" />
     </a>
-    <h1>${title}</h1>
+    <h1>${article_title}</h1>
   </div>
   <div id="sidebar1">
     <h1 id="photo_title"></h1>
@@ -46,7 +48,7 @@ $(document).ready(function(){ emptysquare_slideshow_onready(photos) });
         <img class="icon" style="position:relative; top:1px" src="emptysquare_slideshow_flickr_icon.gif" width="22px" height="11px" />
       </a>
     </div>
-    <div id="back_to_article">Article: <a href="${back_to_article_link}">${article_title}</a></div>
+    <div id="back_to_article">Back to article: <a href="${back_to_article_link}">${article_title}</a></div>
   </div>
   <div id="mainContent">
     <div id="photo_nav">
