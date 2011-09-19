@@ -17,13 +17,15 @@ import flickrapi # from http://pypi.python.org/pypi/flickrapi
 import argparse # Python 2.7 module
 import zipfile
 
+from tornado.web import template
+
 api_key = '24b43252c30181f08bd549edbb3ed394'
 
 parser = argparse.ArgumentParser(description='Update emptysquare slideshow from your Flickr account')
 parser.add_argument(dest='flickr_username', action='store', help='Your Flickr username')
 parser.add_argument(dest='set_name', action='store', help='The (case-sensitive) name of the Flickr set to use')
-parser.add_argument(dest='article_title', action='store', help='The title of the related article (for back-to-article link)')
-parser.add_argument(dest='back_to_article_link', action='store', help='URL of the related article (for back-to-article link')
+parser.add_argument('--article-title', default=None, help='The title of the related article (for back-to-article link)')
+parser.add_argument('--back-to-article-link', default=None, help='URL of the related article (for back-to-article link')
 parser.add_argument('--show-titles', type=bool, default=False, help='Whether to show individual photos\' titles')
 
 ## {{{ http://code.activestate.com/recipes/577257/ (r2)
@@ -164,9 +166,10 @@ def make_html(source, destination, photos, args):
     source_contents = open(source).read()
     with file(destination, 'w+') as f:
         f.write(
-            string.Template(
-                source_contents
-            ).safe_substitute({
+            template.Template(
+                source_contents,
+                autoescape=None,
+            ).generate(**{
                 'title': photos['title'],
                 'total_photos': photos['total'],
                 'photos_info_json': dump_json(photos),
@@ -183,6 +186,6 @@ if __name__ == '__main__':
     photos = get_photoset(args.flickr_username, args.set_name)
     make_html(source, destination, photos, args)
     print(destination)
-    zipfilename = slugify(args.article_title) + '.zip'
+    zipfilename = slugify(args.article_title or args.set_name) + '.zip'
     make_zip(destination, zipfilename)
     print (zipfilename)

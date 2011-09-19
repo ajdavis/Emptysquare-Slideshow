@@ -74,6 +74,8 @@ a img {
     margin-top: 6px;
 	width:75px;
 	padding:0;
+	color: #aaa;
+	font-weight: bold;
 }
 .twoColFixRtHdr #sidebar1 {
 	float: right; /* since this element is floated, a width must be given */
