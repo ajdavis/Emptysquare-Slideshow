@@ -9,6 +9,7 @@ secret 2f58307171bc644e
 """
 
 from __future__ import print_function
+import webbrowser
 import re
 import os
 import sys
@@ -27,6 +28,7 @@ parser.add_argument(dest='set_name', action='store', help='The (case-sensitive) 
 parser.add_argument('--article-title', default=None, help='The title of the related article (for back-to-article link)')
 parser.add_argument('--back-to-article-link', default=None, help='URL of the related article (for back-to-article link')
 parser.add_argument('--show-titles', type=bool, default=False, help='Whether to show individual photos\' titles')
+parser.add_argument('--no-browser', type=bool, default=False, help="Don't open a web browser to display the slideshow")
 
 ## {{{ http://code.activestate.com/recipes/577257/ (r2)
 _slugify_strip_re = re.compile(r'[^\w\s-]')
@@ -191,4 +193,7 @@ if __name__ == '__main__':
     print(destination)
     zipfilename = slugify(args.set_name) + '.zip'
     make_zip(destination, slugify(args.set_name), zipfilename)
-    print (zipfilename)
+    print(zipfilename)
+    if not args.no_browser:
+        print('Opening web browser...')
+        webbrowser.open('file://' + os.path.abspath(destination))
