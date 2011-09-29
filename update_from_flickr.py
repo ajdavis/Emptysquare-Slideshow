@@ -10,8 +10,8 @@ secret 2f58307171bc644e
 
 from __future__ import print_function
 import re
+import os
 import sys
-import string
 import simplejson
 import flickrapi # from http://pypi.python.org/pypi/flickrapi
 import argparse # Python 2.7 module
@@ -146,7 +146,7 @@ def get_photoset(flickr_username, set_name):
     
     return photos
 
-def make_zip(html_filename, zipfilename):
+def make_zip(html_filename, directory_name, zipfilename):
     print('Making zip file')
     with zipfile.ZipFile(zipfilename, 'w') as zf:
         for fname in [
@@ -160,7 +160,10 @@ def make_zip(html_filename, zipfilename):
             'emptysquare_slideshow_flickr_icon.gif',
             'emptysquare_slideshow_lodown_logo.gif',
         ]:
-            zf.write(fname)
+            zf.write(
+                filename=fname,
+                arcname=os.path.join(directory_name, fname),
+            )
 
 def make_html(source, destination, photos, args):
     source_contents = open(source).read()
@@ -186,6 +189,6 @@ if __name__ == '__main__':
     photos = get_photoset(args.flickr_username, args.set_name)
     make_html(source, destination, photos, args)
     print(destination)
-    zipfilename = slugify(args.article_title or args.set_name) + '.zip'
-    make_zip(destination, zipfilename)
+    zipfilename = slugify(args.set_name) + '.zip'
+    make_zip(destination, slugify(args.set_name), zipfilename)
     print (zipfilename)
