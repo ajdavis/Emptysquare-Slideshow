@@ -11,7 +11,7 @@
 
 photos = {{ photos_info_json }};
 
-show_titles = {{ show_titles }};
+show_titles = {{ 'true' if show_titles else 'false' }};
 
 $(document).ready(function(){ emptysquare_slideshow_onready(photos) });
 
@@ -42,12 +42,14 @@ $(document).ready(function(){ emptysquare_slideshow_onready(photos) });
   <div id="sidebar1">
     <h1 id="photo_title"></h1>
     <div id="photo_caption"></div>
-    <div id="photo_credit">
-      Photo: <span id="photo_credit_span"></span>
-      <a id="flickr_link" href="#" target="_blank">
-        <img class="icon" style="position:relative; top:1px" src="emptysquare_slideshow_flickr_icon.gif" width="22px" height="11px" />
-      </a>
-    </div>
+    {% if credit %}
+      <div id="photo_credit">
+        Photo: <span id="photo_credit_span"></span>
+          <a id="flickr_link" href="#" target="_blank">
+            <img class="icon" style="position:relative; top:1px" src="emptysquare_slideshow_flickr_icon.gif" width="22px" height="11px" />
+          </a>
+        </div>
+    {% end %}
     {% if back_to_article_link and article_title %}
       <div id="back_to_article">Back to article: <a href="{{ back_to_article_link }}">{{ article_title }}</a></div>
     {% end %}

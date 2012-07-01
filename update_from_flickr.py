@@ -1,11 +1,6 @@
 #!/usr/bin/env python
 """
 Requires Python 2.7 or better
-
-notes 2010-09-17 emptysquare.net flickrapi
-
-key 24b43252c30181f08bd549edbb3ed394
-secret 2f58307171bc644e
 """
 
 from __future__ import print_function
@@ -13,7 +8,6 @@ import webbrowser
 import re
 import os
 import sys
-import simplejson
 import flickrapi # from http://pypi.python.org/pypi/flickrapi
 import argparse # Python 2.7 module
 import zipfile
@@ -21,14 +15,17 @@ import zipfile
 from tornado.web import template
 
 api_key = '24b43252c30181f08bd549edbb3ed394'
+api_secret = '2f58307171bc644e'
 
 parser = argparse.ArgumentParser(description='Update emptysquare slideshow from your Flickr account')
 parser.add_argument(dest='flickr_username', action='store', help='Your Flickr username')
 parser.add_argument(dest='set_name', action='store', help='The (case-sensitive) name of the Flickr set to use')
+parser.add_argument('--credit', action='store_true', default=False, help='Display "Photo: A. Jesse Jiryu Davis"')
+parser.add_argument('--private', action='store_true', default=False, help='Include private images')
 parser.add_argument('--article-title', default=None, help='The title of the related article (for back-to-article link)')
 parser.add_argument('--back-to-article-link', default=None, help='URL of the related article (for back-to-article link')
-parser.add_argument('--show-titles', type=bool, default=False, help='Whether to show individual photos\' titles')
-parser.add_argument('--no-browser', type=bool, default=False, help="Don't open a web browser to display the slideshow")
+parser.add_argument('--show-titles', action='store_true', default=False, help='Whether to show individual photos\' titles')
+parser.add_argument('--no-browser', action='store_true', default=False, help="Don't open a web browser to display the slideshow")
 
 ## {{{ http://code.activestate.com/recipes/577257/ (r2)
 _slugify_strip_re = re.compile(r'[^\w\s-]')
@@ -71,12 +68,22 @@ def dump_json(obj):
     return simplejson.dumps(obj, sort_keys=True, indent=' ')
 
 class JSONFlickr(object):
-    def __init__(self, api_key):
+    def __init__(self, api_key, api_secret):
         """
         @param api_key: A Flickr API key
         """
-        self.flickr = flickrapi.FlickrAPI(api_key)
-    
+        self.flickr = flickrapi.FlickrAPI(api_key, api_secret)
+
+    def authenticate(self):
+        (token, frob) = self.flickr.get_token_part_one(perms='read')
+        if not token:
+            raw_input("Press ENTER after you authorized this program")
+            self.flickr.get_token_part_two((token, frob))
+            print('Authenticated!')
+        else:
+            self.flickr.get_token_part_two((token, frob))
+            print('Already authenticated with Flickr')
+
     def __getattr__(self, attr):
         def f(**kwargs):
             kwargs_copy = kwargs.copy()
@@ -87,8 +94,15 @@ class JSONFlickr(object):
 
         return f
 
-def get_photoset(flickr_username, set_name):
-    json_flickr = JSONFlickr(api_key)
+def first(it):
+    try:
+        for i in it:
+            return i
+    except StopIteration:
+        return None
+
+def get_photoset(flickr_username, set_name, private):
+    json_flickr = JSONFlickr(api_key, api_secret)
     
     print('Getting user id')
     user_id = json_flickr.people_findByUsername(
@@ -96,6 +110,9 @@ def get_photoset(flickr_username, set_name):
     )['user']['nsid']
     
     print(user_id)
+
+    if private:
+        json_flickr.authenticate()
     
     print('Getting set')
     sets = json_flickr.photosets_getList(user_id=user_id)['photosets']['photoset']
@@ -122,11 +139,11 @@ def get_photoset(flickr_username, set_name):
         sizes = json_flickr.photos_getSizes(photo_id=photo['id'])['sizes']['size']
         
         try:
-            medium_640_size = [
-                size for size in sizes
-                if size['label'] == 'Medium 640'
-            ][0]
-            
+            medium_640_size = (
+                first(size for size in sizes if size['label'] == 'Medium 640')
+                or first(size for size in sizes if size['label'] == 'Original')
+            )
+
             # Store the source URL in photo, so it'll get saved to the photo set's
             # cache file
             photo['source'] = medium_640_size['source']
@@ -168,27 +185,25 @@ def make_zip(html_filename, directory_name, zipfilename):
             )
 
 def make_html(source, destination, photos, args):
+    template_params = args.__dict__.copy()
+    template_params['title'] = photos['title']
+    template_params['total_photos'] = photos['total']
+    template_params['photos_info_json'] = dump_json(photos)
+
     source_contents = open(source).read()
     with file(destination, 'w+') as f:
         f.write(
             template.Template(
                 source_contents,
                 autoescape=None,
-            ).generate(**{
-                'title': photos['title'],
-                'total_photos': photos['total'],
-                'photos_info_json': dump_json(photos),
-                'article_title': args.article_title,
-                'back_to_article_link': args.back_to_article_link,
-                'show_titles': 'true' if args.show_titles else 'false',
-            })
+            ).generate(**template_params)
         )
 
 if __name__ == '__main__':
     args = parser.parse_args()
     source = 'emptysquare_slideshow_template.html'
     destination = 'index.html'
-    photos = get_photoset(args.flickr_username, args.set_name)
+    photos = get_photoset(args.flickr_username, args.set_name, args.private)
     make_html(source, destination, photos, args)
     print(destination)
     zipfilename = slugify(args.set_name) + '.zip'
